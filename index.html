@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScreenFix Pro - Premium Tech Repair</title>
+    <!-- Use Local Tailwind JS -->
+    <script src="js/tailwind.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        deepcharcoal: '#121212',
+                        electricblue: '#3b82f6',
+                        cybergreen: '#10b981',
+                        glassbg: 'rgba(255, 255, 255, 0.03)',
+                        glassborder: 'rgba(255, 255, 255, 0.08)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <!-- Use local Dexie, Chart, and Lucide JS files -->
+    <script src="js/dexie.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/lucide.js"></script>
+</head>
+
+<body class="bg-deepcharcoal text-white font-sans antialiased min-h-screen flex flex-col pt-20">
+
+    <!-- Navigation -->
+    <nav
+        class="glass fixed top-0 w-full z-40 px-6 py-4 flex justify-between items-center bg-[#121212]/80 backdrop-blur-xl">
+        <div class="flex items-center gap-3">
+            <img src="ScreeFix Logos/ScreenFix Pro logo.jpg" alt="ScreenFix Pro Logo"
+                class="h-10 w-10 rounded-full object-cover border-2 border-electricblue shadow-lg shadow-electricblue/20">
+            <span class="text-2xl font-bold tracking-wider"><span class="text-electricblue">Screen</span><span
+                    class="text-cybergreen">Fix </span><span class="">Pro</span></span>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex gap-6 items-center text-sm font-semibold tracking-wide uppercase">
+            <a href="#home" class="nav-link hover:text-electricblue transition-colors">Home</a>
+            <a href="#services" class="nav-link hover:text-electricblue transition-colors">Services</a>
+            <a href="#booking" class="nav-link hover:text-electricblue transition-colors">Book Repair</a>
+            <a href="#dashboard" class="nav-link hover:text-electricblue transition-colors">Queue</a>
+            <a href="#shop" class="nav-link hover:text-electricblue transition-colors">Shop</a>
+            <a href="#about" class="nav-link hover:text-electricblue transition-colors">About</a>
+        </div>
+
+        <!-- Mobile Nav Toggle (Vertical Ellipsis) -->
+        <button id="mobileNavToggle"
+            class="md:hidden flex items-center justify-center p-2 text-gray-400 hover:text-electricblue transition-colors">
+            <i data-lucide="more-vertical" class="w-8 h-8"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Side Panel Overlay -->
+    <div id="sidePanelOverlay"
+        class="fixed inset-0 bg-black/60 z-50 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm">
+    </div>
+
+    <!-- Mobile Side Panel -->
+    <div id="sidePanel"
+        class="fixed top-0 right-0 h-full w-[280px] bg-[#121212] z-[60] translate-x-full transition-transform duration-300 border-l border-white/10 flex flex-col p-8">
+        <div class="flex justify-between items-center mb-12">
+            <span class="font-bold text-xl">Menu</span>
+            <button id="closeSidePanel" class="text-gray-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div class="flex flex-col gap-8 text-lg font-medium tracking-wide">
+            <a href="#home" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="home"
+                    class="w-5 h-5"></i> Home</a>
+            <a href="#services" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="wrench"
+                    class="w-5 h-5"></i> Services</a>
+            <a href="#booking" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="calendar"
+                    class="w-5 h-5"></i> Book Repair</a>
+            <a href="#dashboard" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="activity"
+                    class="w-5 h-5"></i> Queue</a>
+            <a href="#shop" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="shopping-bag"
+                    class="w-5 h-5"></i> Shop</a>
+            <a href="#about" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="info"
+                    class="w-5 h-5"></i> About</a>
+        </div>
+        <div class="mt-auto border-t border-white/10 pt-8">
+            <div class="flex gap-6 justify-center text-gray-400">
+                <a href="#"><i data-lucide="instagram"></i></a>
+                <a href="#"><i data-lucide="twitter"></i></a>
+                <a href="#"><i data-lucide="facebook"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section id="home"
+            class="min-h-[90vh] flex flex-col items-center justify-center text-center px-4 relative overflow-hidden bg-deepcharcoal">
+            <!-- Background Glow -->
+            <div
+                class="absolute w-[600px] h-[600px] bg-electricblue/10 rounded-full blur-[120px] -top-20 -left-20 animate-pulse">
+            </div>
+            <div
+                class="absolute w-[500px] h-[500px] bg-cybergreen/10 rounded-full blur-[100px] bottom-10 right-10 animate-pulse">
+            </div>
+
+            <div class="z-10 max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-left">
+                <div>
+                    <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight">
+                        Don't let a crack <br>
+                        <span class="text-gradient">ruin your day.</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl font-light">
+                        Premium, fast, and local mobile tech repair. We bring the fix to you, preserving your data and
+                        saving your time. - <span class="font-bold">Daniel Harry</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#booking"
+                            class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg flex items-center justify-center gap-2">
+                            <i data-lucide="wrench"></i> Book Now
+                        </a>
+                        <a href="#shop"
+                            class="glass text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                            <i data-lucide="shopping-bag"></i> Shop Accessories
+                        </a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-r from-electricblue to-cybergreen rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+                    </div>
+                    <img src="ScreeFix Logos/ScreenFix Pro logo.jpg" alt="ScreenFix Pro Full Logo"
+                        class="relative rounded-3xl w-full h-auto shadow-2xl object-cover transform transition duration-500 hover:scale-[1.02]">
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Grid -->
+        <section id="services" class="py-24 px-6 max-w-7xl mx-auto bg-deepcharcoal">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gradient">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glass glass-card p-10 rounded-3xl text-center group bg-white/5">
+                    <div
+                        class="w-20 h-20 bg-electricblue/20 rounded-2xl flex items-center justify-center mx-auto mb-8 text-electricblue group-hover:rotate-6 transition-transform">
+                        <i data-lucide="smartphone" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Screen Replacement</h3>
+                    <p class="text-gray-400 leading-relaxed">Flawless OLED and LCD replacements. 45-60 minutes
+                        turnaround. Data stays safe.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="glass glass-card p-10 rounded-3xl text-center group bg-white/5">
+                    <div
+                        class="w-20 h-20 bg-cybergreen/20 rounded-2xl flex items-center justify-center mx-auto mb-8 text-cybergreen group-hover:rotate-6 transition-transform">
+                        <i data-lucide="battery-charging" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Battery Swap</h3>
+                    <p class="text-gray-400 leading-relaxed">Restore your phone's stamina with premium, high-capacity
+                        batteries. Quick pop-in, pop-out.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="glass glass-card p-10 rounded-3xl text-center group bg-white/5">
+                    <div
+                        class="w-20 h-20 bg-electricblue/20 rounded-2xl flex items-center justify-center mx-auto mb-8 text-electricblue group-hover:rotate-6 transition-transform">
+                        <i data-lucide="shield-check" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Glass Protection</h3>
+                    <p class="text-gray-400 leading-relaxed">Military-grade tempered glass and liquid protection applied
+                        to perfection without bubbles.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advert Section 1 -->
+        <section class="py-12 px-6 max-w-7xl mx-auto">
+            <div class="relative rounded-3xl overflow-hidden h-64 md:h-80 flex items-center justify-center">
+                <!-- <img src="C:\Users\Arc. HARRY\.gemini\antigravity\brain\22694b19-9e28-46a7-b1cb-849920d5ff49\repair_tech_hero_1772135937099.png" -->
+                <img src="./ScreeFix Logos/Picture5.png" alt="Trusted Repair Service"
+                    class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+                <div class="relative z-10 text-center p-8">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">Trusted by Thousands</h2>
+                    <p class="text-lg text-gray-300">We use only the highest quality parts for your premium devices.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking System & Dashboard -->
+        <section id="booking" class="py-24 bg-[#0a0a0a] relative">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+                <!-- Booking Form -->
+                <div>
+                    <h2 class="text-4xl font-bold mb-8 text-gradient">Book a Repair</h2>
+                    <form id="bookingForm" class="glass p-10 rounded-3xl flex flex-col gap-6 bg-white/5">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Full
+                                Name</label>
+                            <input type="text" id="custName" required
+                                class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-electricblue focus:ring-1 focus:ring-electricblue transition-all"
+                                placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Phone
+                                Model</label>
+                            <input type="text" id="phoneModel" required
+                                class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-electricblue focus:ring-1 focus:ring-electricblue transition-all"
+                                placeholder="iPhone 15 Pro">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Service
+                                Type</label>
+                            <select id="serviceType" required
+                                class="w-full bg-[#121212] border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-electricblue focus:ring-1 focus:ring-electricblue transition-all appearance-none cursor-pointer">
+                                <option value="Screen Replacement">Screen Replacement</option>
+                                <option value="Battery Swap">Battery Swap</option>
+                                <option value="Glass Protection">Glass Protection</option>
+                                <option value="Other">Other Diagnostic</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Appointment
+                                Date</label>
+                            <input type="date" id="serviceDate" required
+                                class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-electricblue focus:ring-1 focus:ring-electricblue transition-all"
+                                min="2026-02-26">
+                        </div>
+                        <button type="submit"
+                            class="btn-primary w-full py-5 rounded-xl font-bold text-lg mt-4 shadow-xl flex justify-center items-center gap-3 active:scale-95 transition-transform">
+                            <i data-lucide="calendar-check"></i> Confirm Booking
+                        </button>
+                        <p id="bookingSuccess" class="text-cybergreen text-center font-bold hidden mt-4 animate-bounce">
+                            Booking saved successfully!</p>
+                    </form>
+                </div>
+
+                <!-- Live Dashboard -->
+                <div id="dashboard" class="flex flex-col">
+                    <h2 class="text-4xl font-bold mb-8 text-gradient">Appointment Queue</h2>
+                    <div class="glass p-10 rounded-3xl flex-grow overflow-hidden flex flex-col bg-white/5">
+                        <p class="text-gray-400 mb-8 border-b border-white/10 pb-4">Real-time view of upcoming repairs
+                            locally.</p>
+                        <div class="flex-grow overflow-y-auto pr-2 custom-scrollbar flex flex-col gap-4" id="queueList">
+                            <!-- Queue items populated by JS -->
+                        </div>
+                        <div class="mt-10 pt-8 border-t border-white/10">
+                            <canvas id="serviceChart" class="w-full h-56"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Accessory Shop -->
+        <section id="shop" class="py-24 px-6 max-w-7xl mx-auto bg-deepcharcoal">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gradient">Accessory Shop</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <!-- Shop Item 1 -->
+                <div class="glass glass-card p-8 rounded-3xl flex flex-col items-center bg-white/5">
+                    <div class="w-full aspect-video rounded-2xl mb-6 overflow-hidden relative group/img">
+                        <img src="C:\Users\Arc. HARRY\.gemini\antigravity\brain\22694b19-9e28-46a7-b1cb-849920d5ff49\phone_cases_display_1772135976540.png"
+                            alt="Silicone Case Pro"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110">
+                        <div
+                            class="absolute inset-0 bg-electricblue/20 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white w-10 h-10"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-bold text-2xl mb-2">Silicone Case Pro</h4>
+                    <p class="text-electricblue text-xl font-bold mb-6">₦25,000</p>
+                    <button
+                        class="glass w-full py-4 rounded-xl font-bold hover:bg-electricblue border-white/10 transition-all flex justify-center items-center gap-2 group/btn"
+                        onclick="addToCart('Silicone Case Pro')">
+                        <i data-lucide="shopping-cart" class="w-5 h-5 group-hover/btn:animate-bounce"></i> Add to Cart
+                    </button>
+                </div>
+                <!-- Shop Item 2 -->
+                <div class="glass glass-card p-8 rounded-3xl flex flex-col items-center bg-white/5">
+                    <div class="w-full aspect-video rounded-2xl mb-6 overflow-hidden relative group/img">
+                        <img src="C:\Users\Arc. HARRY\.gemini\antigravity\brain\22694b19-9e28-46a7-b1cb-849920d5ff49\screen_protector_application_1772136039120.png"
+                            alt="Privacy Glass"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110">
+                        <div
+                            class="absolute inset-0 bg-cybergreen/20 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white w-10 h-10"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-bold text-2xl mb-2">Privacy Glass</h4>
+                    <p class="text-electricblue text-xl font-bold mb-6">₦15,000</p>
+                    <button
+                        class="glass w-full py-4 rounded-xl font-bold hover:bg-electricblue border-white/10 transition-all flex justify-center items-center gap-2 group/btn"
+                        onclick="addToCart('Privacy Glass')">
+                        <i data-lucide="shopping-cart" class="w-5 h-5 group-hover/btn:animate-bounce"></i> Add to Cart
+                    </button>
+                </div>
+                <!-- Shop Item 3 -->
+                <div class="glass glass-card p-8 rounded-3xl flex flex-col items-center bg-white/5">
+                    <div
+                        class="w-full aspect-video bg-gradient-to-br from-gray-800 to-black rounded-2xl mb-6 flex items-center justify-center border border-white/5">
+                        <i data-lucide="zap" class="w-20 h-20 text-electricblue animate-pulse"></i>
+                    </div>
+                    <h4 class="font-bold text-2xl mb-2">Super Fast Charger</h4>
+                    <p class="text-electricblue text-xl font-bold mb-6">₦35,000</p>
+                    <button
+                        class="glass w-full py-4 rounded-xl font-bold hover:bg-electricblue border-white/10 transition-all flex justify-center items-center gap-2 group/btn"
+                        onclick="addToCart('Super Fast Charger')">
+                        <i data-lucide="shopping-cart" class="w-5 h-5 group-hover/btn:animate-bounce"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us -->
+        <section id="about" class="py-24 bg-[#0a0a0a]">
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+                <div class="relative">
+                    <div class="absolute -top-10 -left-10 w-32 h-32 bg-electricblue/20 rounded-full blur-3xl"></div>
+                    <h2 class="text-5xl font-bold mb-8 text-gradient">Our Story</h2>
+                    <div
+                        class="glass p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-electricblue/30 transition-colors">
+                        <p class="text-xl text-gray-300 mb-8 leading-relaxed font-light">
+                            Founded by a tech enthusiast in Year 10, <span class="text-white font-bold">ScreenFix
+                                Pro</span> was born out of a simple problem: expensive, slow repair shops. We believe
+                            premium tech repair should be fast, mobile, and affordable for the local community.
+                        </p>
+                        <div class="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8"></div>
+                        <h3 class="text-2xl font-bold text-electricblue mb-4 flex items-center gap-2">
+                            <i data-lucide="globe" class="w-6 h-6"></i> The Mission
+                        </h3>
+                        <p class="text-gray-400 text-lg italic leading-relaxed">
+                            "To reduce e-waste by giving your favorite devices a second life."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Instagram Testimonials -->
+                <div>
+                    <h2 class="text-4xl font-bold mb-10 text-gradient">What Local Customers Say</h2>
+                    <div class="flex flex-col gap-6">
+                        <div
+                            class="glass p-8 rounded-3xl flex gap-6 items-start bg-white/5 hover:translate-x-2 transition-transform">
+                            <div
+                                class="w-14 h-14 rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 p-[3px] shrink-0">
+                                <div
+                                    class="w-full h-full bg-black rounded-full flex items-center justify-center text-xs font-bold ring-2 ring-black">
+                                    AF</div>
+                            </div>
+                            <div>
+                                <p class="text-gray-200 text-lg">"Saved me ₦50k vs the official store. Fixed in 45 mins.
+                                    10/10."</p>
+                                <span
+                                    class="text-sm text-gray-500 mt-3 block font-bold uppercase tracking-widest text-electricblue">@alex_workout
+                                    &bull; Jahi</span>
+                            </div>
+                        </div>
+                        <div
+                            class="glass p-8 rounded-3xl flex gap-6 items-start bg-white/5 hover:translate-x-2 transition-transform">
+                            <div
+                                class="w-14 h-14 rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 p-[3px] shrink-0">
+                                <div
+                                    class="w-full h-full bg-black rounded-full flex items-center justify-center text-xs font-bold ring-2 ring-black">
+                                    SO</div>
+                            </div>
+                            <div>
+                                <p class="text-gray-200 text-lg">"So easy! They met me at the office during lunch.
+                                    Screen looks perfect."</p>
+                                <span
+                                    class="text-sm text-gray-500 mt-3 block font-bold uppercase tracking-widest text-electricblue">@sarah_oge
+                                    &bull; Ikeja</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ & Feedback Form -->
+        <section id="faq" class="py-24 px-6 max-w-5xl mx-auto bg-deepcharcoal">
+            <h2 class="text-4xl font-bold text-center mb-20 text-gradient">Frequently Asked Questions</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div class="flex flex-col gap-4" id="faqContainer">
+                    <!-- FAQ Items -->
+                    <div class="glass rounded-2xl overflow-hidden cursor-pointer faq-item border border-white/5 hover:border-white/20 transition-all bg-white/5"
+                        onclick="toggleFaq(this)">
+                        <div class="p-6 flex justify-between items-center font-bold text-lg">
+                            How long does it take?
+                            <i data-lucide="chevron-down"
+                                class="transform transition-transform faq-icon text-electricblue"></i>
+                        </div>
+                        <div class="accordion-content bg-black/20 px-6 text-gray-400">
+                            Most screen replacements are completed in 45–60 minutes.
+                        </div>
+                    </div>
+                    <div class="glass rounded-2xl overflow-hidden cursor-pointer faq-item border border-white/5 hover:border-white/20 transition-all bg-white/5"
+                        onclick="toggleFaq(this)">
+                        <div class="p-6 flex justify-between items-center font-bold text-lg">
+                            Do I lose my data?
+                            <i data-lucide="chevron-down"
+                                class="transform transition-transform faq-icon text-electricblue"></i>
+                        </div>
+                        <div class="accordion-content bg-black/20 px-6 text-gray-400">
+                            No! We perform a "data-safe" repair, meaning your photos and messages stay exactly where
+                            they are.
+                        </div>
+                    </div>
+                    <div class="glass rounded-2xl overflow-hidden cursor-pointer faq-item border border-white/5 hover:border-white/20 transition-all bg-white/5"
+                        onclick="toggleFaq(this)">
+                        <div class="p-6 flex justify-between items-center font-bold text-lg">
+                            Is there a warranty?
+                            <i data-lucide="chevron-down"
+                                class="transform transition-transform faq-icon text-electricblue"></i>
+                        </div>
+                        <div class="accordion-content bg-black/20 px-6 text-gray-400">
+                            Yes, we provide a 30-day warranty on the part and the labour.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback form -->
+                <div class="glass p-10 rounded-[2.5rem] bg-white/5 border border-white/10">
+                    <h3 class="text-2xl font-bold mb-8 text-center text-white">How did we do?</h3>
+                    <form class="flex flex-col gap-5"
+                        onsubmit="event.preventDefault(); alert('Thanks for the feedback!'); this.reset();">
+                        <input type="text" required placeholder="Name"
+                            class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-cybergreen focus:ring-1 focus:ring-cybergreen transition-all">
+                        <textarea rows="4" required placeholder="Share your experience..."
+                            class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-cybergreen focus:ring-1 focus:ring-cybergreen transition-all"></textarea>
+                        <button type="submit"
+                            class="glass w-full py-5 rounded-xl font-bold hover:bg-cybergreen border-white/10 transition-all mt-4 tracking-widest uppercase text-sm">Submit
+                            Feedback</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0a0a] border-t border-white/5 mt-auto">
+        <div
+            class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12 items-center text-center md:text-left">
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <div class="flex items-center gap-3">
+                    <img src="ScreeFix Logos/ScreenFix Pro logo.jpg" alt="Logo"
+                        class="h-10 w-10 rounded-full border border-electricblue">
+                    <span class="font-bold text-2xl">ScreenFix Pro</span>
+                </div>
+                <p class="text-gray-500 max-w-xs">Premium mobile tech repairs, delivered with speed and integrity.</p>
+            </div>
+            <div class="flex flex-col items-center gap-4">
+                <p class="text-gray-400 text-sm font-semibold tracking-widest uppercase">Connect with us</p>
+                <div class="flex gap-8 text-gray-400">
+                    <a href="#" class="hover:text-electricblue transition-colors"><i data-lucide="instagram"
+                            class="w-8 h-8"></i></a>
+                    <a href="#" class="hover:text-electricblue transition-colors"><i data-lucide="twitter"
+                            class="w-8 h-8"></i></a>
+                    <a href="#" class="hover:text-electricblue transition-colors"><i data-lucide="facebook"
+                            class="w-8 h-8"></i></a>
+                </div>
+            </div>
+            <div class="flex flex-col items-center md:items-end gap-2">
+                <p class="text-gray-500 text-sm">© 2026 ScreenFix Pro. All rights reserved.</p>
+                <div class="text-[10px] font-bold text-gray-700 uppercase tracking-[0.3em]">
+                    Powered by ScreenFix Pro
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating CTA -->
+    <a href="#"
+        class="whatsapp-float bg-cybergreen text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center"
+        title="Chat with us">
+        <i data-lucide="message-circle" class="w-10 h-10"></i>
+    </a>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
