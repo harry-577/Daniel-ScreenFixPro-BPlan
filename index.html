@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScreenFix Pro - Premium Tech Repair</title>
+    <link rel="icon" type="image/png" href="ScreeFix Logos/ScreenFix Pro logo.jpg">
     <!-- Use Local Tailwind JS -->
     <script src="js/tailwind.js"></script>
     <script>
@@ -53,6 +54,7 @@
             <a href="#dashboard" class="nav-link hover:text-electricblue transition-colors">Queue</a>
             <a href="#shop" class="nav-link hover:text-electricblue transition-colors">Shop</a>
             <a href="#about" class="nav-link hover:text-electricblue transition-colors">About</a>
+            <a href="#faq" class="nav-link hover:text-electricblue transition-colors">FAQ</a>
         </div>
 
         <!-- Mobile Nav Toggle (Vertical Ellipsis) -->
@@ -89,6 +91,8 @@
                     class="w-5 h-5"></i> Shop</a>
             <a href="#about" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="info"
                     class="w-5 h-5"></i> About</a>
+            <a href="#faq" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="help-circle"
+                    class="w-5 h-5"></i> FAQ</a>
         </div>
         <div class="mt-auto border-t border-white/10 pt-8">
             <div class="flex gap-6 justify-center text-gray-400">
@@ -118,8 +122,8 @@
                         <span class="text-gradient">ruin your day.</span>
                     </h1>
                     <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl font-light">
-                        Premium, fast, and local mobile tech repair. We bring the fix to you, preserving your data and
-                        saving your time. - <span class="font-bold">Daniel Harry</span>
+                        "Premium, fast, and local mobile tech repair. We bring the fix to you; preserving your data and
+                        saving your time." - <span class="font-bold text-gray-300">Daniel Harry</span>
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="#booking"
@@ -153,7 +157,7 @@
                         <i data-lucide="smartphone" class="w-10 h-10"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Screen Replacement</h3>
-                    <p class="text-gray-400 leading-relaxed">Flawless OLED and LCD replacements. 45-60 minutes
+                    <p class="text-gray-400 leading-relaxed">Cracked screen replacements. 45-60 minutes
                         turnaround. Data stays safe.</p>
                 </div>
                 <!-- Service 2 -->
@@ -162,7 +166,8 @@
                         class="w-20 h-20 bg-cybergreen/20 rounded-2xl flex items-center justify-center mx-auto mb-8 text-cybergreen group-hover:rotate-6 transition-transform">
                         <i data-lucide="battery-charging" class="w-10 h-10"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Battery Swap</h3>
+                    <h3 class="text-2xl font-bold mb-4"><span class="text-gray-200">Battery Swap</span></h3>
+                    <h3 class="text-2xl font-bold mb-4"><span class="text-cybergreen">(coming soon)</span></h3>
                     <p class="text-gray-400 leading-relaxed">Restore your phone's stamina with premium, high-capacity
                         batteries. Quick pop-in, pop-out.</p>
                 </div>
@@ -211,17 +216,39 @@
                         <div>
                             <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Phone
                                 Model</label>
-                            <input type="text" id="phoneModel" required
-                                class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-electricblue focus:ring-1 focus:ring-electricblue transition-all"
-                                placeholder="iPhone 15 Pro">
+                            <select id="phoneModel" required
+                                class="w-full bg-[#121212] border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-electricblue focus:ring-1 focus:ring-electricblue transition-all appearance-none cursor-pointer">
+                                <option value="" disabled selected>Select Phone Model</option>
+                                <optgroup label="iPhone">
+                                    <option value="iPhone 17">iPhone 17</option>
+                                    <option value="iPhone 16">iPhone 16</option>
+                                    <option value="iPhone 15">iPhone 15</option>
+                                    <option value="iPhone 14">iPhone 14</option>
+                                    <option value="iPhone 13">iPhone 13</option>
+                                    <option value="iPhone 12">iPhone 12</option>
+                                    <option value="iPhone 11">iPhone 11</option>
+                                </optgroup>
+                                <optgroup label="Samsung Galaxy S">
+                                    <option value="Samsung S26">Samsung S26</option>
+                                    <option value="Samsung S25">Samsung S25</option>
+                                    <option value="Samsung S24">Samsung S24</option>
+                                    <option value="Samsung S23">Samsung S23</option>
+                                </optgroup>
+                                <optgroup label="Samsung Galaxy A">
+                                    <option value="Samsung A56">Samsung A56</option>
+                                    <option value="Samsung A55">Samsung A55</option>
+                                    <option value="Samsung A18">Samsung A18</option>
+                                    <option value="Samsung A17">Samsung A17</option>
+                                </optgroup>
+                            </select>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Service
                                 Type</label>
                             <select id="serviceType" required
                                 class="w-full bg-[#121212] border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-electricblue focus:ring-1 focus:ring-electricblue transition-all appearance-none cursor-pointer">
-                                <option value="Screen Replacement">Screen Replacement</option>
-                                <option value="Battery Swap">Battery Swap</option>
+                                <option value="Screen Replacement">Screen Replacement (Tempered)</option>
+                                <option value="Battery Swap">Screen Replacement (Privacy)</option>
                                 <option value="Glass Protection">Glass Protection</option>
                                 <option value="Other">Other Diagnostic</option>
                             </select>
@@ -276,8 +303,8 @@
                             <i data-lucide="zoom-in" class="text-white w-10 h-10"></i>
                         </div>
                     </div>
-                    <h4 class="font-bold text-2xl mb-2">Silicone Case Pro</h4>
-                    <p class="text-electricblue text-xl font-bold mb-6">₦25,000</p>
+                    <h4 class="font-bold text-2xl mb-2">Silicone/ Plastic Case</h4>
+                    <p class="text-electricblue text-xl font-bold mb-6">₦1,000 - ₦3,500</p>
                     <button
                         class="glass w-full py-4 rounded-xl font-bold hover:bg-electricblue border-white/10 transition-all flex justify-center items-center gap-2 group/btn"
                         onclick="addToCart('Silicone Case Pro')">
@@ -295,8 +322,8 @@
                             <i data-lucide="zoom-in" class="text-white w-10 h-10"></i>
                         </div>
                     </div>
-                    <h4 class="font-bold text-2xl mb-2">Privacy Glass</h4>
-                    <p class="text-electricblue text-xl font-bold mb-6">₦15,000</p>
+                    <h4 class="font-bold text-2xl mb-2">Tempered/ Privacy Glass</h4>
+                    <p class="text-electricblue text-xl font-bold mb-6">₦1,500 - ₦4,500</p>
                     <button
                         class="glass w-full py-4 rounded-xl font-bold hover:bg-electricblue border-white/10 transition-all flex justify-center items-center gap-2 group/btn"
                         onclick="addToCart('Privacy Glass')">
@@ -309,8 +336,9 @@
                         class="w-full aspect-video bg-gradient-to-br from-gray-800 to-black rounded-2xl mb-6 flex items-center justify-center border border-white/5">
                         <i data-lucide="zap" class="w-20 h-20 text-electricblue animate-pulse"></i>
                     </div>
-                    <h4 class="font-bold text-2xl mb-2">Super Fast Charger</h4>
-                    <p class="text-electricblue text-xl font-bold mb-6">₦35,000</p>
+                    <h4 class="font-bold text-2xl mb-2">Super Fast Charger </h4>
+                    <p class="text-electricblue text-xl font-bold mb-6"><span class="text-cybergreen">(coming
+                            soon)</span></p>
                     <button
                         class="glass w-full py-4 rounded-xl font-bold hover:bg-electricblue border-white/10 transition-all flex justify-center items-center gap-2 group/btn"
                         onclick="addToCart('Super Fast Charger')">
@@ -329,8 +357,12 @@
                     <div
                         class="glass p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-electricblue/30 transition-colors">
                         <p class="text-xl text-gray-300 mb-8 leading-relaxed font-light">
-                            Founded by a tech enthusiast in Year 10, <span class="text-white font-bold">ScreenFix
-                                Pro</span> was born out of a simple problem: expensive, slow repair shops. We believe
+                            Founded by <span class="font-bold text-gray-300">Daniel Harry</span>, a tech minded student
+                            in Year 10,
+                            <span class="text-electricblue font-bold">Screen</span><span
+                                class="text-cybergreen font-bold">Fix </span><span class="font-bold">Pro</span></span>
+                            was born out of a
+                            simple problem: expensive, slow repair shops. We believe
                             premium tech repair should be fast, mobile, and affordable for the local community.
                         </p>
                         <div class="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8"></div>
@@ -359,7 +391,7 @@
                                 <p class="text-gray-200 text-lg">"Saved me ₦50k vs the official store. Fixed in 45 mins.
                                     10/10."</p>
                                 <span
-                                    class="text-sm text-gray-500 mt-3 block font-bold uppercase tracking-widest text-electricblue">@alex_workout
+                                    class="text-sm text-gray-500 mt-3 block font-bold uppercase tracking-widest text-electricblue">@alex_faji
                                     &bull; Jahi</span>
                             </div>
                         </div>
@@ -376,7 +408,7 @@
                                     Screen looks perfect."</p>
                                 <span
                                     class="text-sm text-gray-500 mt-3 block font-bold uppercase tracking-widest text-electricblue">@sarah_oge
-                                    &bull; Ikeja</span>
+                                    &bull; Wuse 2</span>
                             </div>
                         </div>
                     </div>
@@ -453,7 +485,9 @@
                 <div class="flex items-center gap-3">
                     <img src="ScreeFix Logos/ScreenFix Pro logo.jpg" alt="Logo"
                         class="h-10 w-10 rounded-full border border-electricblue">
-                    <span class="font-bold text-2xl">ScreenFix Pro</span>
+                    <span class="text-electricblue font-bold text-2xl">Screen</span><span
+                        class="text-cybergreen font-bold text-2xl -ml-3">Fix
+                    </span><span class="font-bold text-2xl">Pro</span>
                 </div>
                 <p class="text-gray-500 max-w-xs">Premium mobile tech repairs, delivered with speed and integrity.</p>
             </div>
