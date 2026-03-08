@@ -51,7 +51,7 @@
             <a href="#home" class="nav-link hover:text-electricblue transition-colors">Home</a>
             <a href="#services" class="nav-link hover:text-electricblue transition-colors">Services</a>
             <a href="#booking" class="nav-link hover:text-electricblue transition-colors">Book Repair</a>
-            <a href="#dashboard" class="nav-link hover:text-electricblue transition-colors">Queue</a>
+            <!-- <a href="#dashboard" class="nav-link hover:text-electricblue transition-colors">Queue</a> -->
             <a href="#shop" class="nav-link hover:text-electricblue transition-colors">Shop</a>
             <a href="#about" class="nav-link hover:text-electricblue transition-colors">About</a>
             <a href="#faq" class="nav-link hover:text-electricblue transition-colors">FAQ</a>
@@ -73,29 +73,46 @@
     <div id="sidePanel"
         class="fixed top-0 right-0 h-full w-[280px] bg-[#121212] z-[60] translate-x-full transition-transform duration-300 border-l border-white/10 flex flex-col p-8">
         <div class="flex justify-between items-center mb-12">
-            <span class="font-bold text-xl">Menu</span>
+            <span class="font-bold text-xl text-gradient">Menu</span>
             <button id="closeSidePanel" class="text-gray-400 hover:text-white">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
         </div>
         <div class="flex flex-col gap-8 text-lg font-medium tracking-wide">
+            <hr class="-my-4 border-gray-700">
             <a href="#home" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="home"
                     class="w-5 h-5"></i> Home</a>
+            <hr class="-my-4 border-gray-700">
             <a href="#services" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="wrench"
                     class="w-5 h-5"></i> Services</a>
+            <hr class="-my-4 border-gray-700">
             <a href="#booking" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="calendar"
                     class="w-5 h-5"></i> Book Repair</a>
-            <a href="#dashboard" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="activity"
-                    class="w-5 h-5"></i> Queue</a>
+            <hr class="-my-4 border-gray-700">
+            <!-- <a href="#dashboard" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="activity"
+                    class="w-5 h-5"></i> Queue</a> -->
             <a href="#shop" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="shopping-bag"
                     class="w-5 h-5"></i> Shop</a>
+            <hr class="-my-4 border-gray-700">
             <a href="#about" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="info"
                     class="w-5 h-5"></i> About</a>
+            <hr class="-my-4 border-gray-700">
             <a href="#faq" class="side-link flex items-center gap-4 transition-colors"><i data-lucide="help-circle"
                     class="w-5 h-5"></i> FAQ</a>
+            <hr class="-my-4 border-gray-700">
         </div>
-        <div class="mt-auto border-t border-white/10 pt-8">
-            <div class="flex gap-6 justify-center text-gray-400">
+        <div class="mt-auto pt-8">
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <div class="flex items-center gap-3">
+                    <img src="ScreeFix Logos/ScreenFix Pro logo.jpg" alt="Logo"
+                        class="h-10 w-10 rounded-full border border-electricblue">
+                    <span class="text-electricblue font-bold text-2xl">Screen</span><span
+                        class="text-cybergreen font-bold text-2xl -ml-3">Fix
+                    </span><span class="font-bold text-2xl">Pro</span>
+                </div>
+                <!-- <p class="text-gray-500 max-w-xs">Premium mobile tech repairs, delivered with speed and integrity.</p> -->
+            </div>
+            <div class="flex gap-4 mt-4 justify-center text-gray-400">
                 <a href="#"><i data-lucide="instagram"></i></a>
                 <a href="#"><i data-lucide="twitter"></i></a>
                 <a href="#"><i data-lucide="facebook"></i></a>
@@ -212,6 +229,20 @@
                             <input type="text" id="custName" required
                                 class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-electricblue focus:ring-1 focus:ring-electricblue transition-all"
                                 placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">
+                                Phone No.</label>
+                            <input type="tel" id="custPhone" required
+                                class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-electricblue focus:ring-1 focus:ring-electricblue transition-all"
+                                placeholder="+234-8012-345-6789">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">
+                                e-mail</label>
+                            <input type="email" id="custMail"
+                                class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-electricblue focus:ring-1 focus:ring-electricblue transition-all"
+                                placeholder="johndoe@example.com">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Phone
@@ -491,7 +522,7 @@
             </div>
             <div class="flex flex-col items-center gap-4">
                 <p class="text-gray-400 text-sm font-semibold tracking-widest uppercase">Connect with us</p>
-                <div class="flex gap-8 text-gray-400">
+                <div class="flex gap-8 text-gray-400 ml-2">
                     <a href="#" class="hover:text-electricblue transition-colors"><i data-lucide="instagram"
                             class="w-8 h-8"></i></a>
                     <a href="#" class="hover:text-electricblue transition-colors"><i data-lucide="twitter"
@@ -513,7 +544,7 @@
     <a href="#"
         class="whatsapp-float bg-cybergreen text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center"
         title="Chat with us">
-        <i data-lucide="message-circle" class="w-10 h-10"></i>
+        <i data-lucide="message-circle" class="w-6 h-6 md:w-10 md:h-10"></i>
     </a>
 
     <script src="app.js"></script>
